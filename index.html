@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .container{
+            display: flex;
+        }
+        .player1{
+            height: 300px;
+            width: 300px;
+            font-size: 100px;
+            
+
+        }
+        .player2{
+            height: 300px;
+            width: 300px;
+            font-size: 100px;
+ 
+        }
+        .roll{
+            /* background-color: red; */
+            height: 300px;
+            width: 300px;
+            
+        }
+        .btn{
+            height: 50px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="player1"  id="player1"></div>
+        <div class="roll" id="roll">
+            <button class="btn" id="btn" onclick="roll(1,6)">Button</button>
+        </div>
+        
+        <div class="player2" id="player2"></div>
+    </div>
+    <script>
+        let p1_count =0;
+        let p2_count =0;
+        let i=0;
+        var flag =0;
+        
+
+
+        function roll(min,max) {
+            let value = Math.floor(Math.random() * (max - min + 1) ) + min;
+            // document.getElementById('roll').innerHTML= value;
+            if (flag==0) {
+                let result;
+                
+                let p1 = document.getElementById('player1');
+                result= (parseInt(p1.innerHTML) || 0) + value;
+                p1.innerHTML= result;
+                if (result==15) {
+                    p1.innerHTML="You are The winner";
+                }else{
+                flag=1;}
+            }else if(flag == 1){
+                let result;
+                
+                let p2 = document.getElementById('player2');
+                result= (parseInt(p2.innerHTML) || 0) + value;
+                p2.innerHTML= result;
+                // let p2 = document.getElementById('player2');
+                // p2.textContent+= parseInt(value);
+                // p2_count +=value;
+                if (result==15) {
+                    p1.innerHTML="You are The winner";
+                }else{
+                flag=0;}
+
+            }
+
+        }
+
+    </script>
+</body>
+</html>
