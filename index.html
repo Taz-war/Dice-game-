@@ -39,7 +39,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- <h2 class="winner"></h2> -->
+        <h2 class="winner"></h2>
         <h3>Player 1</h3>
         <div class="player1"  id="player1"></div>
         <div class="roll" id="roll">
@@ -53,24 +53,21 @@
         let p2_count =0;
         let i=0;
         let flag =0;
-        const valueForPlayer1=0
-        const valueForPlayer2=0
         
 
 
         function roll(min,max) {
-            const value = Math.floor(Math.random() * (max - min + 1) ) + min;
-            const p1 = document.getElementById('player1');
-            const p2 = document.getElementById('player2');
-
-            const winnerPlayer=document.querySelector(".winner")
+            let value = Math.floor(Math.random() * (max - min + 1) ) + min;
+            let p1 = document.getElementById('player1');
+            let p2 = document.getElementById('player2');
+            const winnerPlayer=document.querySelector(".winner");
+            winnerPlayer.innerHTML=''
             // document.getElementById('roll').innerHTML= value;
             if (flag==0) {
                 let result;
                 
                 result= (parseInt(p1.innerHTML) || 0) + value;
                 console.log({result,p1})
-                valueForPlayer1= valueForPlayer1+value
 
                 p1.innerHTML= result;
                 if (result>=15) {
